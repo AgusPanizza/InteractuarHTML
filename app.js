@@ -1,12 +1,63 @@
 class Cafe{
-    constructor(tipoCafe, unidades){ 
+    constructor(marca,tipoCafe,precio){ 
+        this.marca = marca; 
         this.tipoCafe = tipoCafe;  
-        this.unidades = unidades; 
-        //this.precio = precio;
-        //this.id = id;
+        this.precio = precio;
     }
 }
 
+//----------------PRODUCTOS--------------------------//
+
+const productos = []
+
+const cafe1 = new Cafe ("Rambla", "Nicaragua", 1400);
+const cafe2 = new Cafe ("Rambla", "Colombia", 1400);
+const cafe3 = new Cafe ("Puerto Blest", "Colombia", 1200);
+const cafe4 = new Cafe ("Puerto Blest", "Guatemala", 1200);
+const cafe5 = new Cafe ("Puerto Blest", "Peru", 1200);
+const cafe6 = new Cafe ("Puerto Blest", "El salvador", 1200);
+
+
+productos.push(cafe1)
+productos.push(cafe2)
+productos.push(cafe3)
+productos.push(cafe4)
+productos.push(cafe5)
+productos.push(cafe6)
+
+let ObjtoJson = JSON.stringify(productos)
+localStorage.setItem("productos",ObjtoJson)
+
+let selector =  document.getElementById("testImprimir")
+
+productos.forEach (e => {
+
+    //VARIEDADED DE CAFES
+    let div1 = document.createElement("div")
+    div1.setAttribute("class", "card card-body text-center")
+
+    let h5 = document.createElement("h5")
+    h5.textContent= e.marca
+    div1.appendChild(h5)
+    h5.setAttribute("class", "card-title")
+
+    
+    let h6 = document.createElement("h6")
+    h6.textContent= e.tipoCafe
+    div1.appendChild(h6)
+    h6.setAttribute("class", "card-subtitle mb-2 text-muted")
+
+
+    let p1 = document.createElement("p")
+    p1.textContent= e.precio
+    div1.appendChild(p1)
+    p1.setAttribute("class", "card-text")
+
+selector.appendChild(div1)
+
+})
+
+//----------------PEDIDO--------------------------//
 let carrito = []
 
 let btnSave = document.getElementById("save")
@@ -15,22 +66,23 @@ let form = document.getElementById("form")
 let btnClear = document.getElementById("clear")
 
 
-//Guardado de datos
+//GUARDADO DE DATOS
 const saveData = () => {
 
-    //PEDIDO
+    //REQUEST
+    let marca = document.getElementById("marca").value
     let tipoCafe = document.getElementById("tipoCafe").value
-    let unidades = document.getElementById("unidades").value
+    let precio = document.getElementById("precio").value
 
 
     if (JSON.parse(localStorage.getItem("carrito") != null)) {
         carrito= JSON.parse(localStorage.getItem("carrito"))
-        let cafe=  new Cafe(tipoCafe, unidades)
+        let cafe=  new Cafe(marca,tipoCafe, precio)
         carrito.push(cafe)
         localStorage.setItem("carrito", JSON.stringify(carrito))
     }
     else{
-        let cafe=  new Cafe(tipoCafe, unidades)
+        let cafe=  new Cafe(marca,tipoCafe, precio)
         carrito.push(cafe)
         localStorage.setItem("carrito", JSON.stringify(carrito))
     }
@@ -53,13 +105,13 @@ const printData = () => {
 
         let th1 = document.createElement("th")
         th1.setAttribute("class", "col-2")
-        th1.textContent = `${e.tipoCafe}`
+        th1.textContent = `${e.marca}`
         table.appendChild(th1)
 
     
         let th2 = document.createElement("th")
         th2.setAttribute("class", "col-2")
-        th2.textContent = `${e.unidades}`
+        th2.textContent = `${e.tipoCafe}`
         table.appendChild(th2)
 
         let th3 = document.createElement("th")
@@ -67,19 +119,13 @@ const printData = () => {
         th3.textContent = `${e.precio}`
         table.appendChild(th3)
 
-
-        let td2 = document.createElement("td")
-        td2.setAttribute("class", "col-2")
-        td2.textContent  = "X"
-        table.appendChild(td2)
-
         tablePrint.appendChild(table)
 
     })
 
 }
 else{
-    document.getElementById("err").textContent = "No has agregado nada a tu carrito"
+    document.getElementById("err").textContent = "Tu carrito de compras esta vacío"
 }
 
 }
@@ -122,117 +168,4 @@ printData()
 
 
 
-
-
-
-
-/*
-let carrito = [];
-
-let btnSave = document.getElementById("save")
-let tablePrint = document.getElementById("table")
-let form = document.getElementById("form")
-let btnClear = document.getElementById("clear")
-
-const saveData = () => {
-
-    let tipoCafe = document.getElementById("tipoCafe").value
-    let unidades = document.getElementById("unidades").value
-
-
-    if (JSON.parse(localStorage.getItem("carrito") != null)) {
-        users = JSON.parse(localStorage.getItem("carrito")) 
-        let index = carrito.length + 1
-        let cafe = new Cafe(tipoCafe, unidades, index) 
-        carrito.push(cafe) 
-        localStorage.setItem("carrito", JSON.stringify(carrito)) 
-    } else {
-        let index = 1
-        let cafe = new Cafe(tipoCafe, unidades, index) 
-        carrito.push(cafe) 
-        localStorage.setItem("carrito", JSON.stringify(carrito)) 
-    }
-}
-
-
-//IMPRIMIR DATOS
-const printData = () => {
-
-    let dataToPrint = JSON.parse(localStorage.getItem("carrito"))
-
-    if (dataToPrint != null) {
-        dataToPrint.forEach(e => {
-
-            let table = document.createElement("tr")
-
-            let td = document.createElement("td")
-            td.setAttribute("class", "col-1")
-            td.textContent = `${dataToPrint.indexOf(e)}`
-            table.appendChild(td)
-
-            let th1 = document.createElement("th")
-            th1.setAttribute("class", "col-2")
-            th1.textContent = `${e.tipoCafe}`
-            table.appendChild(th1)
-
-            let th2 = document.createElement("th")
-            th2.setAttribute("class", "col-2")
-            th2.textContent = `${e.unidades}`
-            table.appendChild(th2)
-
-            let th3 = document.createElement("th")
-            th3.setAttribute("class", "col-2")
-            th3.textContent = `${e.precio}`
-            table.appendChild(th3)
-
-            let td2 = document.createElement("td")
-            td2.setAttribute("class", "col-2")
-            table.appendChild(td2)
-
-            let button = document.createElement("button")
-            button.setAttribute("class", "btn btn-danger")
-            button.setAttribute("id", `${e.id}`)
-            button.setAttribute("onclick", `deleteUser(${e.id})`)
-            button.textContent = "X"
-            td2.appendChild(button)
-
-            //AGREGARLO A MI ID
-            tablePrint.appendChild(table)
-        })
-
-    } else {
-        document.getElementById("err").textContent = "No existe ese café"
-    }
-}
-
-const deleteUser = (id) => {
-
-    let allUser = JSON.parse(localStorage.getItem("users"))
-    let allUserAct = allUser.filter(e => e.id != id)
-    localStorage.setItem("users", JSON.stringify(allUserAct))
-    location.reload()
-
-}
-
-form.addEventListener("submit", saveData)
-btnClear.addEventListener("click", () => {
-    localStorage.clear()
-    location.reload()
-})
-
-/*
-function totalCarrito(){
-    let carritoTotal = 0;
-    for (const producto of carrito){
-        carritoTotal += producto.precio;
-    }
-    return carritoTotal;                  
-    }
-*/
-
- //   window.addEventListener("load", () => {
-  ///      printData()
-   // })
-
-//alert(`El total de cafés ingresados es de ${carrito.length} por un monto de $${totalCarrito()}`);
 

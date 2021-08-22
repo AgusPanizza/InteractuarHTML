@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="takeAway">
+<div class="eShop">
     <!--INICIO DE BARRA NAVEGACION-->
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -47,56 +47,54 @@
     </nav>  
   </header>
   <!--FIN DE BARRA NAVEGACION-->
-<main>
+  <main>
     <h1><i>e-shop</i></h1>
     <h2>Hacé tu compra y retirala por nuestro local</h2> 
     <p>"San Benito de Palermo 1700"</p> <hr>
+  </main>
 
 <h3>CAFES</h3>
-<ul>
-  <li> 1) Rambla Nicaragua $1.400</li>
-  <li> 2) Puerto Blest Colombia $1.200</li>
-  <li> 3) Puerto Blest Guatemala $1.200</li>
-  <li> 4) Puerto Blest Perú $1.200</li>
-  <li> 5) Puerto Blest El Salvador $1.200</li>
-</ul>
+<div id="testImprimir" class= "container-fluid"  style="width: 15rem"; ></div>
 
-<section class="container-fluid">
-  <div class="row">
-      <div class="col-12">
-          <h2 class="text-center">Formulario de Compra</h2>
+  <!--INICIO FORM-->
+<section class="container-fluid pedido">
+  <div class="row text-center" style="width: 50rem">
+      <div class="colg-lg-6 col-md-6 col-12 text-center">
+          <h2 class="text-center">HAZ TU PEDIDO</h2><hr>
           <form action="" class="text-center" id="form">
+            <div class="row">
+              <label for="marca">Marca</label>
+              <input type="text" name="marca" id="marca" required placeholder="Ingresa la marca del Café que elegiste" class="text-center" autocomplete="off">
+          </div>
               <div class="row">
                 <label for="tipoCafe">Tipo de café</label>
-                <input type="text" name="tipoCafe" id="tipoCafe" required placeholder="Ingresa el número de Café que elegiste" class="text-center" autocomplete="off">
+                <input type="text" name="tipoCafe" id="tipoCafe" required placeholder="Ingresa el tipo de Café que elegiste" class="text-center" autocomplete="off">
             </div>
             <div class="row">
-              <label for="unidades">Unidades</label>
-              <input type="text" name="unidades" id="unidades" required placeholder="Ingresa la cantidad de unidades del producto elegido" class="text-center" autocomplete="off">
+              <label for="unidades">Precio</label>
+              <input type="text" name="Precio" id="precio" required placeholder="Ingresa el precio" class="text-center" autocomplete="off">
           </div>
               <br>
               <button id="save">Agregar al carrito</button>
           </form>
-          <button id="clear">Borrar Lista</button>
+          <button class="text-center" id="clear">Borrar Lista</button>
       </div><br>
-      <div class="col-12">
+      <div class="colg-lg-6 col-md-6 col-12 ">
           <br>
-          <h2 class="text-center">Tu carrito</h2>
+          <h2 class="text-center">TU CARRITO</h2><hr>
           <table id="table">
               <tr>
                   <td class="col-1">-</td>
-                  <th class="col-2">Café seleccionado</th>
-                  <th class="col-2">Unidades</th>
+                  <th class="col-2">Marca</th>
+                  <th class="col-2">Café</th>
                   <th class="col-2">Precio</th>
-                  <td class="col-2">Accion</td>
               </tr>
           </table>
           <p id="err"></p>
       </div>
   </div>
 </section>
-
-</main>
+  <!--FIN DEL FORM-->
 </div>
   <!--INICIO DEL FOOTER-->
 <footer>

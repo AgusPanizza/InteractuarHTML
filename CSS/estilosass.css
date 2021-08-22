@@ -83,13 +83,13 @@ footer {
   padding-right: 2%; }
 
 /* BODY CONTACTO*/
-.Contacto, .Patisserie, .Cafe, .Nosotros, .takeAway {
+.Contacto, .Patisserie, .Cafe, .Nosotros, .eShop {
   background-image: url(../Imagenes/Ella.png);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   height: 100%; }
-  .Contacto .card, .Patisserie .card, .Cafe .card, .Nosotros .card, .takeAway .card {
+  .Contacto .card, .Patisserie .card, .Cafe .card, .Nosotros .card, .eShop .card {
     margin-bottom: 20px; }
 
 #IG {
@@ -179,36 +179,35 @@ main ul {
       transform: none; }
 
 /* BODY PEDIDOS*/
-.takeAway {
+.eShop {
   background-image: url(../Imagenes/takeway.png);
-  height: 1000px; }
-  .takeAway h1 {
-    font-family: "Reem Kufi", sans-serif;
-    color: rgba(2, 68, 85, 0.767);
+  font-family: "Reem Kufi", sans-serif;
+  color: rgba(2, 68, 85, 0.767); }
+  .eShop h1 {
     font-weight: bold;
     font-size: 50px;
     display: flex;
     justify-content: center; }
-  .takeAway h2 {
-    font-family: "Reem Kufi", sans-serif;
+  .eShop h2 {
     color: whitesmoke;
     font-weight: bold;
     font-size: 20px;
     display: flex;
     justify-content: center; }
-  .takeAway p {
-    color: rgba(2, 68, 85, 0.767);
+  .eShop p {
     display: flex;
     justify-content: center;
     font-size: 15px; }
-  .takeAway h3 {
-    font-family: "Reem Kufi", sans-serif;
+  .eShop h3 {
     color: whitesmoke;
     font-weight: bolder;
     font-size: 30px;
     display: flex;
     justify-content: center; }
-  .takeAway li {
-    color: rgba(2, 68, 85, 0.767); }
-  .takeAway section h2 {
-    color: rgba(2, 68, 85, 0.767); }
+  .eShop section h2 {
+    color: rgba(2, 68, 85, 0.767);
+    font-size: 30px; }
+  .eShop .pedido {
+    background-color: #f1e6d69a;
+    display: flex;
+    justify-content: center; }

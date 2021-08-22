@@ -257,14 +257,13 @@ footer{
   }
 
 /* BODY PEDIDOS*/
-.takeAway{
+.eShop{
     background-image: url(../Imagenes/takeway.png);
     @extend .Contacto;
-    height: 1000px;
+    font-family: $FuenteRambla;
+    color: $ColorFooter;
 
     h1{
-        font-family: $FuenteRambla;
-        color: $ColorFooter;
         font-weight: bold;
         font-size: 50px;
         display: flex;
@@ -272,7 +271,6 @@ footer{
       }
 
     h2{
-        font-family: $FuenteRambla;
         color: $ColorRambla;
         font-weight: bold;
         font-size: 20px;
@@ -281,14 +279,12 @@ footer{
       }
       
       p{
-          color: $ColorFooter;
           display: flex;
           justify-content: center;
           font-size: 15px;
       }
 
       h3{
-        font-family: $FuenteRambla;
         color: $ColorRambla;
         font-weight: bolder;
         font-size: 30px;
@@ -296,16 +292,19 @@ footer{
         justify-content: center;
       }
 
-      li{
-        color:$ColorFooter; 
-      }
-
       section{
         h2{
           color: $ColorFooter;
+          font-size: 30px;
         }
       }
-      }    
+
+      .pedido{
+        background-color: #f1e6d69a;
+        display: flex;
+        justify-content: center;
+      }
+      }   
 
 
 
