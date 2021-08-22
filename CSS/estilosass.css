@@ -201,3 +201,14 @@ main ul {
     display: flex;
     justify-content: center;
     font-size: 15px; }
+  .takeAway h3 {
+    font-family: "Reem Kufi", sans-serif;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 30px;
+    display: flex;
+    justify-content: center; }
+  .takeAway li {
+    color: rgba(2, 68, 85, 0.767); }
+  .takeAway section h2 {
+    color: rgba(2, 68, 85, 0.767); }
